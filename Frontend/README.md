@@ -1,2 +1,2 @@
 # Frontend Self Study Notes
-#### 1. React JS
+### 1. React JS
