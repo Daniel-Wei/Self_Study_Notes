@@ -1,3 +1,9 @@
 # Notes of Self Study
-#### 1. React JS
+## Backend
+  - .NET
+      - ASP.NET
+
+## Frontend
+  - JS
+      - React
 
