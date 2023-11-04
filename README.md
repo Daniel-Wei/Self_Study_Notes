@@ -1,11 +1,10 @@
 # Notes of Self Study
-============================
 
-## Backend
+### Backend
   - .NET
       - ASP.NET
 
-## Frontend
+### Frontend
   - JS
       - React
 
