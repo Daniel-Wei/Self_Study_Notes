@@ -7,6 +7,7 @@
 ### Cloud
   - AWS
       - AWS Cloud Practitioner
+  - Docker
 
 ### Frontend
   - JS
