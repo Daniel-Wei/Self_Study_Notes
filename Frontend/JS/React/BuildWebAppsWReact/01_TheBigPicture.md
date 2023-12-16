@@ -108,7 +108,6 @@
         let user = 'Cory';
   
         <input type="text" value={user} />
-
     - One-way Binding(React)
       ```
       state = { user: 'Cory' }
@@ -120,6 +119,7 @@
       }
 
        <input type="text" value={this.state.user} onChange={this.handleChange} />
+      ```
       - More control as can declare precisely what should happen on every event, which means can transform and validate input before updating state, and perform performance optimizations as desired.
       - Easy to debug
       
@@ -135,6 +135,8 @@
       - Example: Loop logic
       ```
       <div *ngFor="let user of users">{{user.name}}</div> //Angular
+
+      <div v-for="user in users">{{user.name}}</div> //Vue
       
      
     - JS-centric: React
@@ -145,6 +147,9 @@
       {isAdmin && <h1>Hi Admin</h1>}
       ```
       - Example: Loop
+      ```
+      users.map(user => <div>{user.name}</div>)
+      ```
      
   
   - Seperate vs. Single File
