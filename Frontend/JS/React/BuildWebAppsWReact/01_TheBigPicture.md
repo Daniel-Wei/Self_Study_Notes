@@ -33,6 +33,26 @@
         }
       }
       ```
+      - render(): JSX - looks like HTML, but it's sitting in a JavaScript file
+      - JSX compiles to JS
+        ```
+        <h1 color="red">Heading here</h1>
+        ==>
+        React.createElement("h1", {color: "red"}, "Heading here")
+
+      - The JSX above compiles down to this. The plain JS is sent to the browser. The call to createElement generates HTML.
+      - React.createElement("name of the tag", {object that specifies the attributes}, "markup should sit inside")
+    - Traditional libraries like Angular and Vue seek to enhance the power of HTML by inventing their own syntax for simple operations like looping
+      - Angular
+        ```
+        <div *ngFor="let user of users">
+      - Vue
+        ```
+        <div v-for="user in users">
+    - React just handles HTML w JS
+      ``
+      {users.map(createUser)} //JS built-in function 'map'
+    - Tradtional libraries put fake JS in HTML, and React put fake HTML in JS
   - Corporate Investment
   - Community Support
   - Performance
