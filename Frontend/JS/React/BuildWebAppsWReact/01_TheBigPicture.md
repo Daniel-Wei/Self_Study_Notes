@@ -120,27 +120,31 @@
       }
 
        <input type="text" value={this.state.user} onChange={this.handleChange} />
-
       - More control as can declare precisely what should happen on every event, which means can transform and validate input before updating state, and perform performance optimizations as desired.
       - Easy to debug
       
-  
   - Template-centric vs. JS-centric
     - Template-centric: Angular, Vue
       - seek to make HTML more powerful by inventing their own unique syntax for writing code in HTML
-      ``` if true then display
+      - Example: if true then display
+      ``` 
       <h1 *ngIf="isAdmin">Hi Admin</h1> //Angular
   
       <h1 v-if="isAdmin">Hi Admin</h1> //Vue
 
-      ``` Loop
+      - Example: Loop logic
+      ```
+      <div *ngFor="let user of users">{{user.name}}</div> //Angular
       
      
     - JS-centric: React
       - Utilizes the power of JS to handle HTML
+      - Since plain JS, we get: Autocomplete support + Error messages
+      - Example: if true then display
       ```
       {isAdmin && <h1>Hi Admin</h1>}
-      - Since plain JS, we get: Autocomplete support + Error messages
+      - Example: Loop
+     
   
   - Seperate vs. Single File
   
