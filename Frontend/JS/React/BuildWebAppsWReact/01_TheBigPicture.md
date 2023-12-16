@@ -24,14 +24,15 @@
   - Developer Experience
     - Small & Logical API
     - HelloWorld
-    ```
-    import React from 'react';
+      ```
+      import React from 'react';
 
-    class HelloWorld extends React.Component {
-      render() {
-        return <div>Hello {props.name}</div>
+      class HelloWorld extends React.Component {
+        render() {
+          return <div>Hello {props.name}</div>
+        }
       }
-    }
+      ```
   - Corporate Investment
   - Community Support
   - Performance
