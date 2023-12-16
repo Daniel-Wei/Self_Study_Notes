@@ -39,7 +39,7 @@
         <h1 color="red">Heading here</h1>
         ==>
         React.createElement("h1", {color: "red"}, "Heading here")
-
+        ```
       - The JSX above compiles down to this. The plain JS is sent to the browser. The call to createElement generates HTML.
       - React.createElement("name of the tag", {object that specifies the attributes}, "markup should sit inside")
     - Traditional libraries like Angular and Vue seek to enhance the power of HTML by inventing their own syntax for simple operations like looping
@@ -137,8 +137,12 @@
       <div *ngFor="let user of users">{{user.name}}</div> //Angular
 
       <div v-for="user in users">{{user.name}}</div> //Vue
-      
-     
+      ```
+      - Example: Event
+      ```
+      <button (click)="delete()">Delete</button> //Anugular
+      <button v-on:click="delete">Delete</button> //Vue
+      ```
     - JS-centric: React
       - Utilizes the power of JS to handle HTML
       - Since plain JS, we get: Autocomplete support + Error messages
@@ -150,11 +154,71 @@
       ```
       users.map(user => <div>{user.name}</div>)
       ```
+      - Example: Event
+      ```
+      <button onClick={delete}>Delete</button>
+      ```
+    - Benefits
+      - Template-centric
+        - Little JS knowledge required
+        - Avoid confusion w JS binding
+        - Rule of least power
+      - JS-centric
+        - Little framework-specific syntax
+        - Fewer concepts to learn. It's JS
+        - Less code
+        - Easy to read & debug
+        - Encourage improving JS skills
      
-  
   - Seperate vs. Single File
+    - MVC: Model(JS) + View(HTML) + Controller(JS)
+      - Separate technologies, but intertwined concerns
+      - Handling intertwined concerns in separate files can actually hinder debugging and slows feedback
+    - React: Component(JS & JSX)
+      - Each component stands on its own and can be composed w other components to build rich & complex UIs
+      - Markup and logic are colocated in the same file
+      - Each component is a separate concern: embed logic, styling and markup concerns, as JS, CSS and JSX work together to create a useful component
+      - Nested Components
   
   - Standard vs. Non-standard
+    - Web Component Standard
+      - Four Core Technologies
+        - Templates: inert, reusable markup
+        - Custom Elements: define own elements
+        - Shadow DOM: Encapsulated styling
+        - Imports: Bundle HTML, JS & CSS
+      - Spotty Browser support: polyfills required
+      - Not enable anything new
+      - JS libraries keep innovating
+      - Only run in the browser
+
+    - Non-standard: Angular, Vue, React
+      - Faster innovation
+      - Strong user and developer experience
+      - Broad browser support
+
+    - Compare
+      - Web Components - Templates; React - JSX, JS
+      - Web Components - Custom Elements; React - Declate React components
+      - Web Components - Shadow Dom; React - CSS modules, CSS in JS, "inline"
+      - Web Components - Imports; React - One component per file
+    
   - Community vs. Corporate
+    - Corporate Backed
+      - React, driven by FB's needs
+      - Full-time development staff
 
 #### 3. Why NOT React?
+  - HTML and JSX Differ
+    - Differences
+      - HTML: for, class, <style color="blue">, <!-- Comment -->
+      - JSX: htmlFor, className, <style={{color:'blue'}}>, {*/ Comment /*}
+    - Convert HTML to JSX
+      - find/replace
+      - Online Compiler
+      - htmltojsx on npm
+  - Build Step Required
+  - Potential Version Conflicits
+  - Outdated Resources Online
+  - Design Fatigue
+  - Next Steps
