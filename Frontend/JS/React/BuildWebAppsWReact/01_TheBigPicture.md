@@ -85,9 +85,65 @@
 
 #### 2. Tradeoffs
   - Framework vs. Library
+    - Frameworks(Angular):
+      - Clear opinions
+      - Less decision fatigue
+      - Less setup overhead
+      - More cross-team consistency
+
+    - Library(React):
+      - Light-weight
+      - Spinkle(少量) on existing apps: FB slowly replaced their PHP app w React
+      - Pick what you need
+      - Free to choose best tech
+      - Popular boilerplates(样板) exist
+  
   - Concise vs. Explicit
+    - React trades conciseness for predictability and explicitness
+    - Two-way Binding:
+        - Avoid typing by automatically keeping form inputs in sync w the underlying data
+        - Less coding
+        - JS values and inputs are automatically kepy in sync.
+        ```
+        let user = 'Cory';
+  
+        <input type="text" value={user} />
+
+    - One-way Binding(React)
+      ```
+      state = { user: 'Cory' }
+
+      function handleChange(event){
+        this.setState({
+          user: event.target.value; // Explicit change handler
+        });
+      }
+
+       <input type="text" value={this.state.user} onChange={this.handleChange} />
+
+      - More control as can declare precisely what should happen on every event, which means can transform and validate input before updating state, and perform performance optimizations as desired.
+      - Easy to debug
+      
+  
   - Template-centric vs. JS-centric
+    - Template-centric: Angular, Vue
+      - seek to make HTML more powerful by inventing their own unique syntax for writing code in HTML
+      ``` if true then display
+      <h1 *ngIf="isAdmin">Hi Admin</h1> //Angular
+  
+      <h1 v-if="isAdmin">Hi Admin</h1> //Vue
+
+      ``` Loop
+      
+     
+    - JS-centric: React
+      - Utilizes the power of JS to handle HTML
+      ```
+      {isAdmin && <h1>Hi Admin</h1>}
+      - Since plain JS, we get: Autocomplete support + Error messages
+  
   - Seperate vs. Single File
+  
   - Standard vs. Non-standard
   - Community vs. Corporate
 
