@@ -54,6 +54,41 @@
       {users.map(createUser)} //JS built-in function 'map'
     - Tradtional libraries put fake JS in HTML, and React put fake HTML in JS
   - Corporate Investment
+    - When breaking changes occur in React, FB has consistently provided a codemod that automates the change
+    - A codemod is a command line tool: easily resolve breaking changes by running a script
   - Community Support
+  
   - Performance
+    - Why Virtual DOM
+      - JS is fast, but updating the DOM is expensive
+      - React minimizes DOM changes
+      - Before React, most libraries would blindly update DOM ro reflect the new state, which often lead to redrawing a significant portion of the page, even when only a minor change had occurred.
+      - In contrast, React monitors the values of each component state
+        - It helps avoid layout thrashing, which is when a browser has to recalculate the position of everything when a DOM elements changes.
+        - Saves battery and CPU.
+        - Enables simple programming model
+  
   - Testability
+    - Tradtional UI Tests
+      - Hassle(麻烦) to set up
+      - Requireds browser
+      - Slow
+      - Brittle(易碎的) Integration Tests
+      - Time-consuming to write or maintain
+     
+    - React
+      - Little to no config required
+      - Run in-memory via Node
+      - Fast
+      - Reliable, Deterministic Unit Tests
+      - Write quickly, update easily
+
+#### 2. Tradeoffs
+  - Framework vs. Library
+  - Concise vs. Explicit
+  - Template-centric vs. JS-centric
+  - Seperate vs. Single File
+  - Standard vs. Non-standard
+  - Community vs. Corporate
+
+#### 3. Why NOT React?
