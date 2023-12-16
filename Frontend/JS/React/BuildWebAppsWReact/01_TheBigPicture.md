@@ -131,7 +131,7 @@
       <h1 *ngIf="isAdmin">Hi Admin</h1> //Angular
   
       <h1 v-if="isAdmin">Hi Admin</h1> //Vue
-
+      ```
       - Example: Loop logic
       ```
       <div *ngFor="let user of users">{{user.name}}</div> //Angular
@@ -143,6 +143,7 @@
       - Example: if true then display
       ```
       {isAdmin && <h1>Hi Admin</h1>}
+      ```
       - Example: Loop
      
   
