@@ -24,3 +24,67 @@
         - When transactions happen to that state, React takes care of updating the user interfaces based on that.
        
   - **React's Basic Concepts**
+    - Components
+      - Like Functions
+      - Input: props, state | Output: UI
+      - Reusable and Composable
+      - <Component />: NOT really invoke a React component, just use it in the HTML as if it were just a regular HTML element
+      - Can manage a private state: to hold any data that may chanfe over the lifecycle of the component
+      - Both Function & Class Components:
+      - Can be stateful and have side effects
+      - Can be purely presentational
+      - Use a set of props and state as their input
+      - Output what looks like HTML, but is really a special JS syntax called JSX
+      - The prop input is an explicit one, similar to the list of attributes an HTML element can have
+      - The state input is an internal one, which React uses to auto-reflect changes in the browser
+      - Within a component, the state object can be changed while the props object represents fixed values
+      - Props are immutable: Components can ONLY change their internal state, NOT their properties
+      - Examples
+        ```
+        const MyComponent = (props) => {
+          return (
+            <domElememtOrCompoenent ... />
+          )
+        }
+
+        class MyComponent extends React.Component {
+          render(){
+            return (
+              <domElememtOrCompoenent ... />
+            )
+          }
+        }
+
+      - JSX is NOT HTML
+        ```
+        class Hello extends React.Component {
+          render() {
+            return (
+              // JSX
+              <div className="container">
+                <h1>Getting Started</h1>
+              </div>
+
+              // Compiled pure HTML from JSX above
+              React.createElement("div", { className: "container"},
+                React.createElement("h1", null, "Getting Started")
+              )
+            )
+          }
+        }
+
+    - Reactive Updates
+      - In React, NO need to worry about how to reflect these changes or even manege when to take changes to the browser
+      - React will react: React will simply react to the changes in a component's state
+      - Take updates to the browser: React will automatically update the parts of the DOM that need to be updated
+
+    - Virtual views in memory
+      - Generate HTML using JS
+        - When Web application receives just the data from the server in the background with AJAX, need smt more than HTML to work with that data: Enhanced HTML template that has loops and conditionals, OR Rey on the power of JS itself to generate the HTML from the data
+      - NO HTML template language
+        - React embraces the latter one and eliminates the extra step needed to parse and enhance the HTML template
+      - Tree Reconciliation(调和) algorithm
+        - Virtual DOM
+        - React uses the virtual DOM to compate versions of the UI in memnory before it acts on them
+       
+  - **First React Component Example**
