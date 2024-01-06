@@ -94,35 +94,35 @@
         - Both React and ReactDOM are already preloaded: the playground understands the JSX syntax
         - Add React DevTools Extension: Allows us to inspect and interact w any React application on any website
         - First URL: jsdrops/rgs1.1 (rgs: React Getting Started)
-        ```
-        function Hello() {
-          // JSX, not HTML
-          // will NOT executed by the browser
-          // will be executed by the JSX extension and compiled to smt else, which the browser can understand.
-        	//return <div>Hello React!</div>;
+          ```
+          function Hello() {
+            // JSX, not HTML
+            // will NOT executed by the browser
+            // will be executed by the JSX extension and compiled to smt else, which the browser can understand.
+          	//return <div>Hello React!</div>;
+            
+            // HTML
+            // Argument 1: the element to be created
+            // Argument 2: Any attribute this element will have
+            // Argument 3: The child of the element to be created 
+            return React.createElement('div', null, 'Hello React!!!');
+          }
           
-          // HTML
-          // Argument 1: the element to be created
-          // Argument 2: Any attribute this element will have
-          // Argument 3: The child of the element to be created 
-          return React.createElement('div', null, 'Hello React!!!');
-        }
-        
-        // To display a React component in a browser, we need to instruct the ReactDOM library on how to do that.
-        // Takes in two arguments
-        // 1. The component to render, in our case ut is the Hello component
-        // 2. The DOM element in the browser where we wish the React component to show up.
-        ReactDOM.render(
-           
-          // JSX
-          // Simple React function component named Hello, which returns a div
-          // Also a peer component, no state here
-          //<Hello />, 
-          
-          // HTML
-          // Hello is a React element
-          React.createElement(Hello, null), 
-          
-          document.getElementById('mountNode'),
-        );
-        ```
+          // To display a React component in a browser, we need to instruct the ReactDOM library on how to do that.
+          // Takes in two arguments
+          // 1. The component to render, in our case ut is the Hello component
+          // 2. The DOM element in the browser where we wish the React component to show up.
+          ReactDOM.render(
+             
+            // JSX
+            // Simple React function component named Hello, which returns a div
+            // Also a peer component, no state here
+            //<Hello />, 
+            
+            // HTML
+            // Hello is a React element
+            React.createElement(Hello, null), 
+            
+            document.getElementById('mountNode'),
+          );
+          ```
