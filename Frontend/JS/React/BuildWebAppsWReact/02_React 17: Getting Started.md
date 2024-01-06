@@ -88,3 +88,43 @@
         - React uses the virtual DOM to compate versions of the UI in memnory before it acts on them
        
   - **First React Component Example**
+      - Playground
+        - https://jscomplete.com/playground 
+        - Use the HTML element with the ID of mountNode: document.getElementById('mountNode')
+        - Both React and ReactDOM are already preloaded: the playground understands the JSX syntax
+        - Add React DevTools Extension: Allows us to inspect and interact w any React application on any website
+        - First URL: jsdrops/rgs1.1 (rgs: React Getting Started)
+        ```
+        function Hello() {
+          // JSX, not HTML
+          // will NOT executed by the browser
+          // will be executed by the JSX extension and compiled to smt else, which the browser can understand.
+        	return <div>Hello React!</div>;
+        }
+        
+        // To display a React component in a browser, we need to instruct the ReactDOM library on how to do that.
+        // Takes in two arguments
+        // 1. The component to render, in our case ut is the Hello component
+        // 2. The DOM element in the browser where we wish the React component to show up.
+        ReactDOM.render(
+           
+          // Simple Reacr function component named Hello, which returns a div
+          // Also a peer component, no state here
+          <Hello />, 
+          document.getElementById('mountNode'),
+        );
+        ```
+
+      - Babel
+        - Special compiler to convert JSX into React API calls
+        - babeljs.io/repl
+        ```
+        //JSX
+        <div>Hello React!</div>
+        ```
+        //JS
+        import { jsx as _jsx } from "react/jsx-runtime";
+        /*#__PURE__*/_jsx("div", {
+          children: "Hello React!"
+        });
+        ```
