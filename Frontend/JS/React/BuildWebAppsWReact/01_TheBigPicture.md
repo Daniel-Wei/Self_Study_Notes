@@ -216,6 +216,19 @@
     - Convert HTML to JSX
       - find/replace
       - Online Compiler
+        HTML:
+        ```
+        <!-- HTML Comment -->
+        <div class="awesome" style="border: 1px solid red">
+          <label for="name">Enter your name: </label>
+        </div>
+        ```
+        JSX:
+        ```
+        {/* HTML Comment */}
+        <div className="awesome" style={{border: '1px solid red'}}>
+          <label htmlFor="name">Enter your name: </label>
+        </div>
       - htmltojsx on npm
   - Build Step Required
   - Potential Version Conflicits
