@@ -230,8 +230,53 @@
           <label htmlFor="name">Enter your name: </label>
         </div>
       - htmltojsx on npm
+  
   - Build Step Required
+    - Modern Web Apps
+      - Minify: To save bandwidth
+      - Transpile(转译): so can use modern JS features today, even before own platform offers full support
+      - Test and Lint(检查去除可能的问题)
+    - Popular Transpilers Compile JSX: Babel, TypeScript
+      - Both allows to use modern JS features today, even before all browsers offer full support
+     
+    - A variety of React boilerplates(模版样板文件)
+      - create-react-app
+        - also minifies and bundles code, and even includes automated testing support, so we do not even need to configure own development or production build environment to work with JSX.
+      
   - Potential Version Conflicits
+    - Can NOT run two versions of React at the same time on the same page: need to keep React components on the same version for a given page
+    - Build Standardized Web Components
+      - do not have to worry about version conflicts at all since there is no runtime
+      - Standard web components just leverage the support that is build right into the browser
+  
   - Outdated Resources Online
+    - Features Extracted from React Core
+      - Old
+        ```
+        import {render} from 'react';
+
+        React.createClass
+
+        import {PropTypes} from 'react';
+
+        mixins: [mixinNameHere]
+        ```
+
+      - New
+        ```
+        // Since React is used more than Web now, React DOM was extracted to a separate package
+        import {render} from 'react-dom';
+
+        //Since most people are using ES classes today, React.creareClass was extracted to a separate library called create-react-class
+        // Need to reference this separate library if want to declare React components using the createClass style
+        var crc = require('create-react-class')
+
+        // Since only some teams choose to use PropTypes over alternatives like TS and Flow, the prop-types library was extracted to a separate npm package too
+        import PropTypes from 'prop-types';
+
+        //mix-ins were initially a popular way to share functionalities between components in React. However, mix-ins are no longer part of React Core. Today, React's Hooks are the most popular to share logic across components.
+        Hooks
+        ```
+  
   - Design Fatigue
   - Next Steps
