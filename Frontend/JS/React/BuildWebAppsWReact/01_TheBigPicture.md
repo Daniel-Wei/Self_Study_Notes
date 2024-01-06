@@ -279,4 +279,96 @@
         ```
   
   - Design Fatigue
-  - Next Steps
+    - Dev Environment
+      - Searchable list of React boilerplates: javascriptstuff.com/react-starter-projects
+      - create-React-app: Automated testing, Transpiling, Bundling, Linting, Automated Build
+
+    - Classes or Functions
+      ```
+      class  Greeting extends React.Component{
+        render(){
+          return <h1>Hello<h1>;
+        }
+      }
+      ```
+      ```
+      function Greeting(){
+        return <h1>Hello</h1>;
+      }
+      ```
+      - Most React devs prefer declaring React components as functions
+      - The function syntax is more concise, and ut tends to help avoid bugs
+
+    - Types
+      - PropTypes
+        ```
+        import React from 'react';
+        import PropTypes from 'prop-types';
+
+        function Greeting(props){
+          return (
+            <h1>Hello {props.name} </h1>
+          )
+        }
+
+        // Declare the types of the data that are passed into your component
+        // Types are checked at runtime
+        Greeting.propTypes = {
+          name: PropTypes.string
+        }
+
+      - TypeScript
+        - A superset of JS that adds strong typing support and compiles down to plain JS
+          ```
+          import * as React from 'react';
+
+          interface Props{
+            name: string;
+          }
+
+          // Type checked at compile
+          function Greeting(props : Props){
+            return (
+              <h1>Hello {props.name}</h1>
+            )
+          }
+
+      - Flow
+        - A project from FB for adding static type checking to JS
+        - Add type annotations to plain JS, and Flow intelligently infers throughhout codebase
+          ```
+          // @flow //annotate the top of each file that prefer to be checked
+          import React from 'react';
+
+          type Props = {
+            name: String
+          }
+
+          // Type checked when you run flow
+          function Greeting(props: Props){
+            return(
+              <h1>Hello {props.name}</h1>
+            )
+          }
+          ```
+
+    - State Management
+      - Plain React: Component State
+      - Flux: Centralized State
+      - Redux:
+          - Centralized State
+          - A popular Flux alternative, offers a more elegant approach than Flux
+          - Uses an immutable data store
+      - MobX:
+          - A lighter weight alternative to Redux
+          - Uses observable data structures
+          - Redux is more explicit and scalable, but MobX requires less code and easier to learn
+
+    - Styling: CSS-in-JS, Plain CSS/Sass/Less, CSS Modules, etc
+
+  - Summary
+    - JSX differs from HTML: Easy to convert
+    - Build step is typically required: Any modern appa needs a build step anyway
+    - Potential version conflicts: Easy to upgrade via codemods
+    - Old featues in searches: Note features extracted from core
+    - Decision fatigue: Start simple
