@@ -99,7 +99,13 @@
           // JSX, not HTML
           // will NOT executed by the browser
           // will be executed by the JSX extension and compiled to smt else, which the browser can understand.
-        	return <div>Hello React!</div>;
+        	//return <div>Hello React!</div>;
+          
+          // HTML
+          // Argument 1: the element to be created
+          // Argument 2: Any attribute this element will have
+          // Argument 3: The child of the element to be created 
+          return React.createElement('div', null, 'Hello React!!!');
         }
         
         // To display a React component in a browser, we need to instruct the ReactDOM library on how to do that.
@@ -108,24 +114,15 @@
         // 2. The DOM element in the browser where we wish the React component to show up.
         ReactDOM.render(
            
-          // Simple Reacr function component named Hello, which returns a div
+          // JSX
+          // Simple React function component named Hello, which returns a div
           // Also a peer component, no state here
-          <Hello />, 
+          //<Hello />, 
+          
+          // HTML
+          // Hello is a React element
+          React.createElement(Hello, null), 
+          
           document.getElementById('mountNode'),
         );
-        ```
-
-      - Babel
-        - Special compiler to convert JSX into React API calls
-        - babeljs.io/repl
-        ```
-        //JSX
-        <div>Hello React!</div>
-        ```
-        ```
-        //JS
-        import { jsx as _jsx } from "react/jsx-runtime";
-        /*#__PURE__*/_jsx("div", {
-          children: "Hello React!"
-        });
         ```
