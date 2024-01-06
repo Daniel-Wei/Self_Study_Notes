@@ -23,4 +23,4 @@
         - Instead of coming up with steps for the transactions on their interfaces, developers just describe the interfaces in terms of a final state, like a function
         - When transactions happen to that state, React takes care of updating the user interfaces based on that.
        
-  -** React's Basic Concepts**
+  - **React's Basic Concepts**
