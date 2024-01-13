@@ -289,7 +289,7 @@
     const rootElement = document.getElementById("root");
     ReactDOM.render(<App />, rootElement);
     ```
-  - Tree Reconciliation in Action
+  - **Tree Reconciliation in Action**
     - This diffing process is possible because of React's virtual DOM, and the fact that we have a representation of our UI in memo because we wrote it in JS.
 
     - For every tick in this example, React keeps the last UI version in memo, and when it has a new one to take to the browser, that new UI version will also be in memo. So React can compute the differences between the new and the old versions.
@@ -336,3 +336,28 @@
     setInterval(render, 1000);
   
     ```
+- Wrap Up
+
+  - Components and Reactive Updates
+    - A React application is a set of reusable components.
+    - Components are just like functions, they take input and they output a description of a UI in the form of a React element.
+    - The ReactDOM library enables us to render those React elements in the browser, and it rerender them for us automatically when their in-memo state changes. To accomplish this, we write the component's markup using the React JS API.
+
+  - Virtual DOM and JSX
+    - React has a way to write the virtual DOM in a syntax way, very close to the HTML syntax we are used to, which is JSX.
+    - Once we have the virtuak DOM description in JSX, we can pre-transform it to valid React API calls, before shipping it to the browser.
+
+  - Props and State
+    - The input for a component is a set of properties and can be accessed inside the component with its first argument object, which is usuallt named props. (props) => {}.
+    - A set of state elements that a component can hook into with the special useState function. [val, setVal] = useState(initialVal).
+    - Immutable Props. Mutable State:
+      - A compoment can be changed inside that component. And every time a component changes its state, React rerenders it.
+      - The Props of a component can NOT be changes by the component, but the whole component can be rerendered with diff props by the component's parent.
+     
+  - ReactDOM.render
+    - <Component />: the component to render.
+    - DOM Node: the HTML element to hold the React-rendered markup.
+
+  - React Normalized Events: onClick, onSubmit, ...
+ 
+  - Two Types of Components: Functions and Class Components
