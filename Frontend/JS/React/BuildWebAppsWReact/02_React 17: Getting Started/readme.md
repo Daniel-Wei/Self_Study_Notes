@@ -1,3 +1,3 @@
-### Build Web Applications with React
+# Build Web Applications with React
 
-#### 02. React 17: Getting Started
+### 2nd Course - React 17: Getting Started
