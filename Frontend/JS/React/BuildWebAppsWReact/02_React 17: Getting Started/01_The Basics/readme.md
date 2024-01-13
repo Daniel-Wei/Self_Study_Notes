@@ -1,6 +1,6 @@
 ### React 17: Getting Started
 
-#### 1. The Basics
+#### 1st Chapter: The Basics
   
   - **Why React**
     - Definition: A JS Library for building user interfaces
