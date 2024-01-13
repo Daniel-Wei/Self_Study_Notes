@@ -361,3 +361,5 @@
   - React Normalized Events: onClick, onSubmit, ...
  
   - Two Types of Components: Functions and Class Components
+
+#### 2. Modern JS Crash Course
