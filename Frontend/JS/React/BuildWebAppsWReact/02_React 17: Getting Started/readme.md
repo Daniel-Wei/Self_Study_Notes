@@ -1,3 +1,3 @@
-### React 17: Getting Started
+### Build Web Applications with React
 
-#### 01. Getting Started
+#### 02. React 17: Getting Started
