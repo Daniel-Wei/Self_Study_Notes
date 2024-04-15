@@ -21,10 +21,8 @@
   - 采用**组件化模式、声明式编码**，提高开发效率和组件复用率。
   - 在**React Native**中可以使用React语法进行**移动端开发**。
   - 使用**虚拟DOM+Diffing算法**，尽量减少与真实DOM的交互。
-    - 例子
+    - 原生JS实现
       ```javascript
-      <!-- 原生JS实现 -->
-      
       <ul id="list"></ul>
 
       <script type = "text/javascript">
