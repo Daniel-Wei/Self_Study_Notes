@@ -37,5 +37,13 @@
           htmlStr += `<li>${person.name} - ${person.age}`
         });
 
+        //操作DOM（True-DOM）呈现界面
+        //更新数据需要全部重新渲染
         document.getElementById('list').innerHTML = htmlStr;
+      
+      </script>
       ```
+    - React实现
+      - 数据 -> 虚拟DOM（Virtual DOM） -> 页面真实DOM（True - DOM）
+      - 001，002 -> 001，002对应的虚拟DOM -> 001，002对应的真实DOM。
+      - 更新数据时，会进行虚拟DOM比较，只需要更新增加对应的虚拟DOM，可以复用之前存在的虚拟DOM。
