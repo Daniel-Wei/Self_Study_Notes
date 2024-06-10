@@ -1,10 +1,2 @@
 # 尚硅谷React教程
 ### https://www.bilibili.com/video/BV1wy4y1D7JT?p=1
-
-### 1. React 简介
-
-### 2. Hello_React案例
-
-### 3. 虚拟DOM的两种创建方式
-
-### 4. 虚拟DOM与真实DOM
