@@ -24,7 +24,6 @@
       render(){
         //读取状态
         const {isHot} = this.state;
-        return <h1>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
 
         //JS原生语句
         //React的event handler property是onClick
@@ -39,6 +38,9 @@
 
         //React渲染时，赋值给onClick的是test()这个方法，不是test()方法的返回值。
         return <h1 onClick = {test}>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
+
+        //static
+        return <h1>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
       }
     }
 
