@@ -16,11 +16,15 @@
     class Weather extends React.Component {
       constructor(props){
         super(props);
+
+        //初始化状态
         this.state = {isHot: true};
       }
 
-      render(){ 
-        return <h1>今天天气很{this.state.isHot ? '炎热' : '凉爽'}</h1>
+      render(){
+        //读取状态
+        const {isHot} = this.state;
+        return <h1>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
       }
     }
 
