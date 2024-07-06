@@ -38,13 +38,13 @@
         return <h1 onClick = {this.changeIsHotState}>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
 
         //只有Weather的实例可以调用changeIsHotState方法
-        //return <h1 onClick = {changeIsHotState}>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
+        return <h1 onClick = {changeIsHotState}>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
 
         //React渲染时，赋值给onClick的是test()这个方法，不是test()方法的返回值。
-        //return <h1 onClick = {test}>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
+        return <h1 onClick = {test}>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
 
         // static
-        //return <h1>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
+        return <h1>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
       }
     }
 
