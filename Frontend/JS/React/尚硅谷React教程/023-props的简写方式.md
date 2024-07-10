@@ -20,14 +20,6 @@
     class Person extends React.Component {
 
       -------------------------------------------------------------------------
-      //解构赋值
-      const{name,age,gender} = this.props;
-
-      //props is read-only
-      // Cannot assign to read only property 'name' of object '#<Object>'
-      this.props.name = 'Jack';
-
-      -------------------------------------------------------------------------
       //static: 是对类自身的props了进行了限制和配置
 
       //对标签属性props进行类型、必要性的限制
@@ -47,6 +39,14 @@
       -------------------------------------------------------------------------
       
       render(){
+
+        //解构赋值
+        const{name,age,gender} = this.props;
+
+        // props is read-only
+        // Cannot assign to read only property 'name' of object '#<Object>'
+        this.props.name = 'Jack';
+
         <ul>
           <li>姓名：{name}</li>
           <li>性别：{gender}</li>
