@@ -31,6 +31,20 @@
       }
     }
 
+    //对标签属性props进行类型、必要性的限制
+    Person.propTypes = {
+      name:PropTypes.string.isRequired, //string类型 required
+      gender:PropTypes.string, // string类型 optional
+      age:PropTypes.number, // number类型 optional
+      speak:PropTypes.func // Notice: NOT function
+    }
+
+    //对标签属性props配置默认default值
+    Person.defaultProps = {
+      gender: 'Male',
+      age: 18
+    }
+
     //2. 渲染组件到页面
     const p1 = {name:'老刘', age:29, gender:'Male'};
     const p2 = {name:'Jerry', age:19, gender:'Male'};
