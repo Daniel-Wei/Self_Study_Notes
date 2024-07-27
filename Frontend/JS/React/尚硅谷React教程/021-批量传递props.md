@@ -34,7 +34,7 @@
     ReactDOM.render(<Person name={p1.name}, age={p1.age}, gender={p1.gender}/>, document.getElementById('test'));
     //ES6的拓展语法：数据中变量的名称必须和类式组件的props的名称保持一致
     //并不是进行了拷贝: {}只是React语法，实际上只有...p1，仅仅适用于标签属性的传递，展开了一个对象（JS原生环境中并不可行）
-    eactDOM.render(<Person {...p1}/>, document.getElementById('test'));
+    ReactDOM.render(<Person {...p1}/>, document.getElementById('test'));
     
    
     </script>
