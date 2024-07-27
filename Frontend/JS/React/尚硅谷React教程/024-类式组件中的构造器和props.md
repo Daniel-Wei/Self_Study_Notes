@@ -59,14 +59,15 @@
       }
 
       -------------------------------------------------------------------------
-      //解构赋值
-      const{name,age,gender} = this.props;
-
-      //props is read-only
-      // Cannot assign to read only property 'name' of object '#<Object>'
-      this.props.name = 'Jack';
 
       render(){
+        //解构赋值
+        const{name,age,gender} = this.props;
+  
+        //props is read-only
+        // Cannot assign to read only property 'name' of object '#<Object>'
+        this.props.name = 'Jack';
+
         <ul>
           <li>姓名：{name}</li>
           <li>性别：{gender}</li>
