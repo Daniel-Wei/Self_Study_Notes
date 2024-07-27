@@ -68,11 +68,13 @@
         // Cannot assign to read only property 'name' of object '#<Object>'
         this.props.name = 'Jack';
 
-        <ul>
-          <li>姓名：{name}</li>
-          <li>性别：{gender}</li>
-          <li>年龄：{age}</li>
-        </ul>
+        return(
+          <ul>
+            <li>姓名：{name}</li>
+            <li>性别：{gender}</li>
+            <li>年龄：{age}</li>
+          </ul>
+        )
       }
     }
 
