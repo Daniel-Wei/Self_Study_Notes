@@ -20,11 +20,13 @@
         //解构赋值
         const{name,age,gender} = this.props;
 
-        <ul>
-          <li>姓名：{name}</li>
-          <li>性别：{gender}</li>
-          <li>年龄：{age}</li>
-        </ul>
+        return(
+          <ul>
+            <li>姓名：{name}</li>
+            <li>性别：{gender}</li>
+            <li>年龄：{age}</li>
+          </ul>
+        )
       }
     }
 
