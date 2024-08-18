@@ -18,9 +18,15 @@
    }
 
    //3. createRef创建ref容器
+   // 该容器也是“专人专用”的，只能存储一个节点，标记为current。
    myRef = React.createRef();
+
+   showMyRef = ()=> {
+      alert(this.myRef.current.value);
+   }
+
    render(){
      return(
-       <input ref={this.myRef}/>
+       <input ref={this.myRef} onClick = {this.showMyRef}/>
      )
    }
