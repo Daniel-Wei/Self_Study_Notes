@@ -56,6 +56,37 @@
     //2. 渲染组件到页面
     ReactDOM.render(<Demo/>, document.getElementById('test'));
 
+
+    //3. 事件委托和冒泡
+
+    /*
+      由于 React 使用了事件委托，这使得在动态创建和销毁元素时，事件处理效率更高。
+      如果没有事件委托，每次创建一个新元素时，你都需要为它添加一个新的事件监听器。
+      同样，在销毁元素时，你需要手动移除事件监听器，以避免内存泄漏。
+      而使用事件委托，React 可以处理所有这些问题，同时提高应用程序的性能。
+
+      在这个例子中，我们将 onClick 事件处理器添加到了父级 <div> 元素。
+      无论我们点击哪个按钮，都会触发 handleClick 函数。
+      这是一个简单的事件委托示例，展示了如何在 React 中利用事件冒泡来优化事件处理。
+    */
+
+    class App extends Component {
+      handleClick = (event) => {
+        alert(`Clicked on: ${event.target.textContent}`);
+      }
+    
+      render() {
+        return (
+          <div onClick={this.handleClick}>
+            <button>Button 1</button>
+            <button>Button 2</button>
+            <button>Button 3</button>
+          </div>
+        );
+      }
+    }
+
+
     </script>
 
   </body>
