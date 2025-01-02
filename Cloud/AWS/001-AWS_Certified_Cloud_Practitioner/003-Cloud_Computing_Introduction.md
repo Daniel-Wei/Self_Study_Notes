@@ -16,7 +16,7 @@
   - Security for sensitive applications
   - Meet specific business needs
 
--** Public Cloud**
+- **Public Cloud**
   - Microsoft Azure, Google Cloud, AWS
   - Cloud resources owned and operated by a 3rd party cloud service delivered over the internet
 
