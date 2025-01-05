@@ -35,3 +35,5 @@
       ]
   }
   ````
+- These policies define the permissions of the users
+- In AWS, you apply **the least priovilege priciple**: do not give more permissions than a user needs
