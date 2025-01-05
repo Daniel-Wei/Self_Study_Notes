@@ -9,29 +9,29 @@
 
 #### 2. IAM: Permissions
 - Users or Groups can be assigned JSON documents called policies
-  - ````json
-    {
-        "Version": "2025-01-16",
-        "Statement": [
-            {
-                "Effect": "Allow",
-                "Action": "ec2:Desctibe*",
-                "Resource": "*"
-            },
-            {
-                "Effect": "Allow",
-                "Action": "elasticloadbalancing:Desctibe*",
-                "Resource": "*"
-            },
-            {
-                "Effect": "Allow",
-                "Action": [
-                  "cloudwatch:ListMetrics",
-                  "cloudwatch:GetMetricStatistics",
-                  "cloudwatch:Describe*",
-                ]
-                "Resource": "*"
-            }
-        ]
-    }
-    ````
+  ````json
+  {
+      "Version": "2025-01-16",
+      "Statement": [
+          {
+              "Effect": "Allow",
+              "Action": "ec2:Desctibe*",
+              "Resource": "*"
+          },
+          {
+              "Effect": "Allow",
+              "Action": "elasticloadbalancing:Desctibe*",
+              "Resource": "*"
+          },
+          {
+              "Effect": "Allow",
+              "Action": [
+                "cloudwatch:ListMetrics",
+                "cloudwatch:GetMetricStatistics",
+                "cloudwatch:Describe*",
+              ]
+              "Resource": "*"
+          }
+      ]
+  }
+  ````
