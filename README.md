@@ -1,4 +1,4 @@
-# Notes of Self Study
+# Notes of Self Study x
 
 ### Algorithmic Trading
   - A Practical Guide to Quantitative Finance Interview
