@@ -1,1 +1,1 @@
-### Modulo 11 Pricing and Supoort
+### Modulo 11: Pricing and Supoort
