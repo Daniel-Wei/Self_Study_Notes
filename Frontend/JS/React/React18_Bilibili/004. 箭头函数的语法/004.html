@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>箭头函数</title>
+        <script>
+            const fn1 = a => a + 10;
+            console.log(fn1(5)); // 15
+
+            const fn2 = (a, b) => a + b;
+            console.log(fn2(1, 2)); // 3
+
+            const fn3 = () => 'Hello World!';
+            console.log(fn3()); // Hello World
+
+            // => 后面是函数的返回值，必须是一个表达式（有返回值的语句）
+            // 如果返回值的对象，需要加()
+            // incorrect: {} 是代码块
+            // const fn4 = () => {name: 'DddWww', age:" 30"};
+            const fn4 = () => ({name: 'DddWww', age:" 30"});
+            console.log(fn4()); // {name: 'DddWww', age: ' 30'}
+
+            const fn5 = (a, b) => {
+                if(a >= 0 && b >= 0){
+                    return a + b;
+                }else{
+                    return 'either is negative'
+                }
+            }
+            console.log(fn5(1, 2)); // 3
+            console.log(fn5(-1, 1)); // either is negative
+
+        </script> 
+    </head>
+    <body>
+         
+    </body>
+</html> 
