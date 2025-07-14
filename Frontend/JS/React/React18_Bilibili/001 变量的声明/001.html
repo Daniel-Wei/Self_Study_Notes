@@ -1,0 +1,59 @@
+<!-- 结论：优先使用const；如果希望变量被改变就使用let；var最好不要出现 -->
+
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>变量</title>
+        <script>
+            // var 没有块级作用域
+            // let 有块级作用域
+            // const 有块级作用域 并且只能赋值一次
+             
+            {
+                var a = 10;
+                let b = 10;
+            }
+
+            // var a is still available even out of the scope
+            console.log(a);
+
+            // console.log(b); // Uncaught ReferenceError: b is not defined
+
+            for(var idx = 1; idx < 5; idx++){
+                console.log("within for loop: ", idx);
+            }
+
+            console.log("out of for loop", idx); // still available
+
+            // var variables definitions is before everything
+            if(false){
+                var test = 100;
+            }
+
+            // undefined but no console error 'not defined'
+            // var test is defined but has not assigned value to
+            console.log("var 'test' defined in unexecuted code: ", test);
+            
+            const c = 12;
+            // Uncaught TypeError TypeError: Assignment to constant variable
+            // c = "hello world!"
+
+            // const的使用场景
+            // 1. 常量
+            const PI = 3.1415926;
+            // 2. 定义一些对象/函数
+            // 可以避免对象/函数被意外修改
+            const obj = {name: 'Daniel Wei'};
+            console.log(obj.name);
+            obj.name = 'DddWww';
+            // can change name, but can not reassign values to obj
+            console.log(obj)
+
+
+        </script>
+    </head>
+    <body>
+         
+    </body>
+</html> 
