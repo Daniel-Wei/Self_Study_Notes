@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>模块化</title>
+        <!-- Uncaught SyntaxError: Cannot use import statement outside a module
+        默认情况下，script不能使用import
+        必须设置script的type属性为module -->
+        <script type="module">
+           
+            // 导入默认时，变量名可以自主指定
+            // import ownNameForDefaultExportInM1 from './m1.js';
+
+            // 导入命名导出时，变量名需要相同，或 + as
+            // import {obj as object, func} from './m1.js';
+
+            // 同时导入默认 + 命名
+            import ownNameForDefaultExportInM1, {obj as object, func as f, b, c} from './m1.js';
+
+            alert(ownNameForDefaultExportInM1);
+            alert(object);
+            alert(b);
+            alert(c);
+        </script> 
+    </head>
+    <body>
+         
+    </body>
+</html> 
