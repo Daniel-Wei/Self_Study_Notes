@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>展开</title>
+        <script>
+            // example: expand in function
+            function func(a, b, c){
+                return a + b + c;
+            }
+
+            let arr = [1, 2, 3];
+            console.log(func(...arr)); // 6
+            console.log(func(...'abc')); // abc
+
+            // example 2: expand in arrays
+            // 浅复制
+            let arr2 = [...arr, 4, 5, 6];
+            console.log(arr2); // [1, 2, 3, 4, 5, 6]
+
+            // example 3: expand in objects
+            let obj1 = {
+                name: "DddWww",
+                age: 30,
+                gender: "Male"
+            };
+
+            // 浅复制
+            let obj2 = {...obj1, address: "Claremont Cres"};
+            console.log(obj2); // {name: 'DddWww', age: 30, gender: 'Male', address: 'Claremont Cres'}
+
+            // same field which appears later whose value assigned
+            let obj3 = {...obj1, name: 'Daniel Wei'};
+            console.log(obj3); // {name: 'Daniel Wei', age: 30, gender: 'Male'}
+        </script> 
+    </head>
+    <body>
+         
+    </body>
+</html> 
