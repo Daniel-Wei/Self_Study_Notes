@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>007. Class</title>
+        <script>
+            "use strict";
+
+            // 类中方法的this不是固定的
+            // 以方法形式调用的时候，this就是当前的实例instance
+            // 以函数形式调用的时候，this是undefined
+            class MyClass {
+                func() {
+                    console.log(this);
+                }
+            }
+
+            const mc1 = new MyClass();
+            const funcVar = mc1.func;
+            // 函数形式执行：undefined
+            // 类中所有代码都会在严格模式下执行
+            // 严格模式的一个特点：函数的this不再是Window，而是undefined
+            funcVar();
+
+            // instance调用方法执行
+            mc1.func(); // My Class{}
+            
+            const testFunc = function() {
+                console.log(this);
+            }
+            // with "use strict": undefined
+            // without "use strict": Window
+            testFunc();
+
+            class TestClass{
+                constructor(id){
+                    this.id = id;
+
+                    // 将func方法的this绑定为当前实例
+                    this.func1 = this.func1.bind(this);
+                }
+
+                func1() {
+                    console.log(this);
+                }
+
+                // 类中的箭头函数方法：this始终指向当前instance
+                func2 = () => {
+                    console.log(this);
+                }
+            }
+
+            const tc1 = new TestClass(1);
+            const tcFunc1 = tc1.func1;
+            tcFunc1(); // TestClass {id: 1, func: f}
+
+            const tcFunc2 = tc1.func2;
+            tcFunc2(); // TestClass {id: 1, func: f}
+        </script>
+    </head>
+    <body>
+         
+    </body>
+</html> 
