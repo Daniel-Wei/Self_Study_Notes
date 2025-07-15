@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>Static Properties</title>
+        <script>
+            class MyClass {
+                static name = "my class static name";
+
+                static func = () => {
+                    console.log(MyClass.name);
+                }
+            }
+
+            MyClass.func(); //my class static name
+            console.log(MyClass.name); //my class static name
+
+        </script>
+    </head>
+    <body>
+         
+    </body>
+</html> 
