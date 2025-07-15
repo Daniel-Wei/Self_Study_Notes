@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>Class Inheritance</title>
+        <script>
+            class Animal {
+                constructor(name, age){
+                    this.name = name;
+                    this.age = age;
+                }
+
+                hello = () => {
+                    console.log("hello");
+                }
+            }
+
+            class Dog extends Animal {
+
+                constructor(name, age, breeds) {
+                    super(name, age);
+                    this.breeds = breeds;
+                }
+
+                //overwrite
+                hello = () => {
+                    console.log(this.breeds + " 汪汪汪～")
+                }
+            }
+
+            const d1 = new Dog("旺财", 5, "金毛");
+            d1.hello(); //金毛 汪汪汪～
+        </script>
+    </head>
+    <body>
+         
+    </body>
+</html> 
