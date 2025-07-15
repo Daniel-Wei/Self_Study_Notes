@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>Array Methods</title>
+        <script>
+            const arr1 = [-1, 2, 3, 4, 5];
+
+            // map: 根据原有数组返回一个新数组
+            const mapResult1 = arr1.map((item, index, array) => item > 0 && index < 2 ? item + 1 : item);
+            console.log(mapResult1); // [-1, 3, 3, 4, 5]
+
+            // filter: 可以从一个数组中获得符合条件的元素
+            const filterResult1 = arr1.filter((item, index) => item > 0 && index < 4);
+            console.log(filterResult1); //[2, 3, 4]
+
+            // find: 返回第一个符合条件的元素
+            const findResult1 = arr1.find((item, index) => item > 0 && index < 4);
+            console.log(findResult1); // 2
+
+            // reduce: 用来合并数组中的元素
+            const reduceResult1 = arr1.reduce((prevVal, currVal) => prevVal > 2 ? prevVal + currVal : currVal);
+            console.log(reduceResult1); // 12
+
+            const reduceIdxWithInitialVal = arr1.reduce((prevVal, currVal, idx) => console.log(idx), 100);
+            console.log(reduceIdxWithInitialVal); // 0 1 2 3 4
+
+             const reduceIdxWithoutInitialVal = arr1.reduce((prevVal, currVal, idx) => console.log(idx));
+            console.log(reduceIdxWithoutInitialVal); // 1 2 3 4
+        </script>
+    </head>
+    <body>
+         
+    </body>
+</html>
