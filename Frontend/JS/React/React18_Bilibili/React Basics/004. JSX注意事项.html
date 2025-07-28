@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="./logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="./manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>JSX注意事项</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- 设置js代码可以被babel处理 -->
+    <script type="text/babel">
+
+      // 1. JSX不是字符串，不要加引号
+      
+      // 渲染成了纯文本
+      // const div = "<div>im a div with double quote</div>";
+
+      // 不要加引号
+      const divNoQuote = <div>im a div without double quote</div>;
+
+      // 2. JSX中的html标签应该小写，React组件应该小写开头
+      // <div>: html原生标签div
+      // <Div>: 自己定义的React组件Div
+
+      // 3. JSX中有且只有一个根标签
+      // right: const div = <div> <div></div> </div>;
+      // wrong: const div = <div></div> <div></div>;
+
+      // 4. JSX标签必须正确结束
+      // 自结束标签必须写/
+      // right in h5, wrong in JSX: <input type="text">
+      // in JSX, must be: <input type="text" />
+
+      // 5. 在JSX中可以使用{}嵌入表达式
+      // - 有值的语句就是表达式
+      // - {if(true){...}}: wrong，没有值所以不是表达式
+      const name = "Daniel Wei";
+      function func(){
+          return "hello!";
+      }
+      let div = <div>
+                    {name} <br/>
+                    {1 + 1} <br/>
+                    {func()} <br/>
+                     <br/>
+                      <br/>
+                       <br/>
+                  </div>
+
+      // 6. 如果表达式是空/boolean/undefined这些值，则不会被渲染显示
+      div = <div>
+              {true} <br/>
+              {null} <br/>
+              {NaN} <br/>
+              {undefined}  <br/>
+            </div>
+
+      // 7. 在JSX中，可以直接在标签中设置其属性
+      // - class需要使用className代替
+      // - style必须使用对象设置
+      const btnStyles = {
+        color: 'blue',
+        fontSize: '16px',
+        backgroundColor: 'lightgray'
+      };
+      const btn = <button style={btnStyles} onClick={() => alert("div was clicked")}>im a div</button>
+
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(btn);
+    </script>
+  </body>
+</html>
