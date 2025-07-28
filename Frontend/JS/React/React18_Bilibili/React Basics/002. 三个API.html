@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="./logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="./manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>三个API</title>
+  </head>
+  <body>
+    <button id="buttonSwitch">切换语言</button>
+    
+    <div id="root">root original content</div>
+    
+    <script>
+      // API：React.createElement()
+      // 用来创建一个React元素
+      
+      // 参数：
+      //  - 1. 元素的名称：html标签必须小写
+      
+      //  - 2. 标签中的属性
+      //    - 2.1 style设置：style: {color: 'blue'}
+      //    - 2.2 在设置事件时，属性名需要改为驼峰命名法，同时需要设置为一个函数
+      //    - 2.3 设置class的时候，写为className，因为class是React中的keyword
+      
+      //  - 3. 元素的内容
+      //    - 3.1 可以放置多个元素
+
+      // 注意：
+      // - React元素最终会通过虚拟DOM转换为真实的DOM元素
+      // - React元素一旦创建就无法修改，只能通过创建新的元素去替换
+
+      const engButton = React.createElement('button', 
+                        {
+                          id: 'btn', 
+                          style: {color: 'blue'}, 
+                          className: 'hello',
+                          onClick: () => {
+                            alert("clicked")
+                          }
+                        }, 
+                        "click me!");
+
+      
+
+      const engBtnContainer = React.createElement('div', {}, "im button's container: ", engButton);
+
+      // React元素一旦创建就无法修改，只能通过创建新的元素去替换
+      const btnSwitch = document.getElementById('buttonSwitch');
+      btnSwitch.addEventListener('click', () => {
+          const chnButton = React.createElement('button', 
+                        {
+                          id: 'btn', 
+                          style: {color: 'blue'}, 
+                          className: 'hello',
+                          onClick: () => {
+                            alert("clicked")
+                          }
+                        }, 
+                        "点我一下!");
+
+          const chnBtnContainer = React.createElement('div', {}, "我是中文按钮的容器：", chnButton);
+          
+          // 修改React元素后，必须重新对根元素进行渲染
+          // 当调用render渲染页面的时候，React会自动比较两次渲染的元素，在真实DOM中只会更新发生变化的部分
+          root.render(chnBtnContainer);
+      });
+
+      
+      // 老版本的React使用方法
+      // ReactDOM.render is no longer supported in React 18. 
+      // Use createRoot instead. 
+      // Until you switch to the new API, your app will behave as if it's running React 17. 
+      // ReactDOM.render(React element, DOM element);
+      
+      // 现在拆分成了：ReactDOM.createRoot() + root.render()
+      
+      // ReactDOM.render(engBtnContainer, document.getElementById('root'));
+
+      
+      // API：ReactDOM.createRoot()
+      // 获取根元素：根元素就是React元素要插入的位置
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      
+      
+      // API：root.render()
+      // 将React元素在根元素中渲染显示
+      // - 根元素中的所有内容都会被删除，被React元素替换：“root original content”不会显示
+      // - 当重复调用render()的时候
+      //    - React会将两次渲染结果进行比较，确保只修改发生变化的元素，对DOM做最少的修改
+      //    - 不会修改容器节点（不修改root），只会修改容器的子节点
+      //    - 不修改没发生变化的节点：可以在不覆盖现有子节点的情况下，将组建插入已有的DOM节点中
+      root.render(engBtnContainer);
+    </script>
+  </body>
+</html>
