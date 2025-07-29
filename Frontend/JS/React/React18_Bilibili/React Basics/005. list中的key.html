@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="./logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="./manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>list中的key</title>
+  </head>
+  <body>
+    <button id="btn1">点我一下</button>
+    <hr>
+    <button id="btn2">click me</button>
+    <hr>
+    <button id="btn3">点我一下</button>
+    <hr>
+    <div id="root"></div>
+    
+    <!-- 设置js代码可以被babel处理 -->
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      
+      const data = [{name: '孙悟空', key: '孙悟空key'}, {name: '猪八戒', key: '猪八戒key'}, {name: '沙和尚', key: '沙和尚key'}];
+      const list = <ul>{data.map(d => <li key={d.key}>{d.name}</li>)}</ul>
+      root.render(list);
+
+      /*
+        在React中我们操作的元素被称为React元素，并不是真正的原生DOM元素
+        React通过虚拟DOM，将React元素和原生DOM元素进行映射
+        虽然我们操作的是React元素，但是这些操作最终都会在真实DOM中体现出来
+      */
+      
+      /* 
+        虚拟DOM的好处
+          - 1. 降低API复杂度
+          - 2. 解决兼容问题
+          - 3. 提升性能（减少DOM的不必要操作）
+      */
+
+      /* 
+        每当我们调用root.render()的时候，页面就会被重新渲染
+          - React会通过diffing算法，将新旧元素进行比较
+          - 通过比较找到发生变化的元素，并且只会对发生变化的元素进行修改，对其余没有发生变化的元素不予处理
+      */
+      
+      document.getElementById('btn1').onclick = function() {
+        // 先比较根被元素类型：ul。如果不同，直接替换所有元素。
+        // 父元素一致时，再去逐个比较子元素，直到找到所有发生变化的元素。
+        const data = [{name: '孙悟空', key: '孙悟空key'}, {name: '猪八戒', key: '猪八戒key'}, {name: '沙和尚', key: '沙和尚key'}];
+        const list = <ul>{data.map(d => <li key={d.key}>{d.name}</li>)}</ul>
+        root.render(list);
+      }
+
+      document.getElementById('btn2').onclick = function() {
+        // 先比较根被元素类型：ul。如果不同，直接替换所有元素。
+        // 父元素一致时，再去逐个比较子元素，直到找到所有发生变化的元素。
+        const data = [{name: 'Daniel Wei', key: 'keyDW'}, {name: 'Steven Gerrard', key: 'keySG'}, {name: 'Sadio Mane', key: 'keySM'}];
+        const list = <ul>{data.map(d => <li key={d.key}>{d.name}</li>)}</ul>
+        root.render(list);
+      }
+
+      /* 
+        当我们在JSX中显示数组时，数组中的每一个元素都需要设置一个唯一的key
+        否则console red warning：
+          - Each child in a list should have a unique "key" prop. Check the top-level render call using <ul>.
+      */
+
+      /*
+        重新渲染页面时，React会按照顺序依次比较对应的元素
+        当渲染一个列表如果不指定key，同样会按照顺序进行比较
+
+        如果列表元素的顺序永远不会发生变化，不指定key也不会有问题
+        但是如果列表元素的顺序发生了变化，不指定key可能会导致性能问题
+      */
+
+      /*
+        Keys tell React which array item each component corresponds to, so that it can match them up later. 
+        This becomes important if your array items can move (e.g. due to sorting), get inserted, or get deleted. 
+        A well-chosen key helps React infer what exactly has happened, and make the correct updates to the DOM tree.
+        https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key
+      */
+
+      /* 
+        React为列表设计了一个key属性
+        key的作用相当于id，只是在页面中无法查看
+        当设置了key以后，在比较元素时，就会比较相同key的元素，而不是按照by default的顺序进行比较
+        
+        在渲染一个列表的时候，通常会给列表中的每个元素设置一个唯一的key来避免上述问题
+        这些key在当前列表中唯一即可，不需要全局唯一
+        一般会采用数据的id作为key
+        但要尽量避免使用index作为key，因为index在重新渲染后可以发生改变
+        唯一的改变是console不再有警告
+        const list = <ul>{data.map((data, index) => <li key={index}>{d.name}</li>)}</ul>
+      */
+
+      document.getElementById('btn3').onclick = function() {
+        // 插入一个新元素：唐僧
+        // 没有指定key时，全部元素被重新渲染了
+        // 指定了key之后，没有元素被重新渲染
+        // const data = ['唐僧', '猪八戒', '沙和尚', '孙悟空'];
+        const data = [{name: '唐僧', key: '唐僧key'}, {name: '孙悟空', key: '孙悟空key'}, {name: '猪八戒', key: '猪八戒key'}, {name: '沙和尚', key: '沙和尚key'}];
+        const list = <ul>{data.map(d => <li key={d.key}>{d.name}</li>)}</ul>
+        root.render(list);
+      }
+
+    </script>
+  </body>
+</html>
