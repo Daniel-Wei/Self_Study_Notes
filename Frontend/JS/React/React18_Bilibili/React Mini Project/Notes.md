@@ -12,12 +12,12 @@
     "eject": "react-scripts eject"
   },
   ```
-  - React语法检查：in package.json
-    ```json
-    "eslintConfig": {
-      "extends": [
-        "react-app",
-        "react-app/jest"
-      ]
-    },
-    ```
+- React语法检查：in package.json
+  ```json
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  ```
