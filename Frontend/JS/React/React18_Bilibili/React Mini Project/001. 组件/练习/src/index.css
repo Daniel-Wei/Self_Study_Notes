@@ -8,66 +8,6 @@ body {
   background-color: #dfdfdf;
 }
 
-*{
-  box-sizing: border-box;
-}
-
-.logs-container{
-  width: 800px;
-  background-color: #eae287;
-  margin: 50px auto;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-
-  .log-container{
-    display: flex;
-    background-color: #fcbf49;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    margin: 16px 0;
-
-    .date{
-      width: 90px;
-      background-color: whitesmoke;
-      border-radius: 10px;
-      font-weight: bold;
-      text-align: center;
-      overflow: hidden;
-      margin: 10px;
-
-      .month{
-        height: 30px;
-        line-height: 30px;
-        font-size: 20px;
-        color: #fff;
-        background-color: #d62828;
-      }
-
-      .day{
-        height: 60px;
-        line-height: 60px;
-        font-size: 50px;
-      }
-    }
-
-    .content {
-      flex: auto;
-      text-align: center;
-      font-weight: bold;
-
-      .description{
-        font-size: 16px;
-        color: #194b49;
-      }
-
-      .time{
-        color: #d62828;
-      }
-    }
-  }
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
