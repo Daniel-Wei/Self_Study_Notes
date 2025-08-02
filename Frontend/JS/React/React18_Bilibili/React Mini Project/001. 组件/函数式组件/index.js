@@ -1,4 +1,4 @@
-import SimpleComponent from './SimpleComponent';
+import SimpleFunctionComponent from './SimpleComponent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<SimpleComponent/>);
+root.render(<SimpleFunctionComponent/>);
