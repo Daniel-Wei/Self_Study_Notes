@@ -1,0 +1,9 @@
+.para {
+    color: red;
+    background-color: #bfa;
+    border: 1px solid red;
+}
+
+.blueBorder{
+    border: 1px solid blue;
+}
