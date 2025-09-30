@@ -1,0 +1,79 @@
+<!-- 
+    Store = holds state.
+        - const store = createStore(reducer, initialState);
+    
+    Reducers = say how state changes, with action.type and optional action.payload.
+        - function reducer(state, action) {
+            switch(action.type) {
+                case "INCREMENT":
+                return { ...state, count: state.count + 1 };
+                case "SET_USER":
+                return { ...state, user: action.payload };
+                default:
+                return state;
+            }
+        }
+    
+    Dispatch = sends actions: store.dispatch({type, payload})
+        - store.dispatch({ type: "INCREMENT" });
+        - store.dispatch({ type: "SET_USER", payload: { id: 1, name: "Alice" } });
+    
+    Subscribe = reacts to state changes: store.subscribe(() => components' interactions w state)
+    
+    Middleware = handles async/side effects. 
+        function fetchUser(id) {
+            return async (dispatch) => {
+                dispatch({ type: "USER_LOADING" });
+                const data = await fetch(`/api/users/${id}`).then(r => r.json());
+                dispatch({ type: "USER_LOADED", payload: data });
+            };
+        }
+
+    Overall Flow:
+        - Dispatch → Middleware (optional) → Reducer → New State → Store → Subscribers/UI
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>React App</title>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.5/redux.min.js"></script>
+    <button id="addBtn">Add+</button>
+    <span id="countSpan">1</span>
+    <button id="minusBtn">Minus-</button>
+  </body>
+</html>
+
+<script>
+    const addBtn = document.getElementById("addBtn");
+    const countSpan = document.getElementById("countSpan");
+    const minusBtn = document.getElementById("minusBtn");
+
+    function reducer(state, action){
+        switch(action.type){
+            case 'ADD':
+                return {...state, cnt: state.cnt + 1};
+            case 'MINUS':
+                return {...state, cnt: state.cnt - 1};
+            default:
+                return state;
+        }
+    }
+
+    const store = Redux.createStore(reducer, {cnt: 1});
+
+    store.subscribe(() => {
+        countSpan.innerText = store.getState().cnt;
+    });
+
+    addBtn.addEventListener('click', () => {
+        store.dispatch({type: 'ADD'});
+    });
+
+    minusBtn.addEventListener('click', () => {
+        store.dispatch({type: 'MINUS'});
+    })  
+
+</script>
