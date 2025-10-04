@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="root"></div>
+</body>
+<!-- This setup is not suitable for production. -->
+<!-- Only use it in development! -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script async src="https://ga.jspm.io/npm:es-module-shims@1.7.0/dist/es-module-shims.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react?dev",
+    "react-dom/client": "https://esm.sh/react-dom/client?dev"
+  }
+}
+</script>
+<script type="text/babel" data-type="module">
+import React, { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+
+import { createContext, useContext, useState } from 'react';
+
+const ThemeContext = createContext(null);
+const CurrentUserContext = createContext(null);
+
+let App = function MyApp() {
+  const [theme, setTheme] = useState('light');
+  return (
+    <MyProviders theme={theme} setTheme={setTheme}>
+      <WelcomePanel />
+      <label>
+        <input
+          type="checkbox"
+          checked={theme === 'dark'}
+          onChange={(e) => {
+            setTheme(e.target.checked ? 'dark' : 'light')
+          }}
+        />
+        Use dark mode
+      </label>
+    </MyProviders>
+  );
+}
+
+function MyProviders({ children, theme, setTheme }) {
+  const [currentUser, setCurrentUser] = useState(null);
+  return (
+    <ThemeContext value={theme}>
+      <CurrentUserContext
+        value={{
+          currentUser,
+          setCurrentUser
+        }}
+      >
+        {children}
+      </CurrentUserContext>
+    </ThemeContext>
+  );
+}
+
+function WelcomePanel({ children }) {
+  const {currentUser} = useContext(CurrentUserContext);
+  return (
+    <Panel title="Welcome">
+      {currentUser !== null ?
+        <Greeting /> :
+        <LoginForm />
+      }
+    </Panel>
+  );
+}
+
+function Greeting() {
+  const {currentUser} = useContext(CurrentUserContext);
+  return (
+    <p>You logged in as {currentUser.name}.</p>
+  )
+}
+
+function LoginForm() {
+  const {setCurrentUser} = useContext(CurrentUserContext);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const canLogin = firstName !== '' && lastName !== '';
+  return (
+    <>
+      <label>
+        First name{': '}
+        <input
+          required
+          value={firstName}
+          onChange={e => setFirstName(e.target.value)}
+        />
+      </label>
+      <label>
+        Last name{': '}
+        <input
+        required
+          value={lastName}
+          onChange={e => setLastName(e.target.value)}
+        />
+      </label>
+      <Button
+        disabled={!canLogin}
+        onClick={() => {
+          setCurrentUser({
+            name: firstName + ' ' + lastName
+          });
+        }}
+      >
+        Log in
+      </Button>
+      {!canLogin && <i>Fill in both fields.</i>}
+    </>
+  );
+}
+
+function Panel({ title, children }) {
+  const theme = useContext(ThemeContext);
+  const className = 'panel-' + theme;
+  return (
+    <section className={className}>
+      <h1>{title}</h1>
+      {children}
+    </section>
+  )
+}
+
+function Button({ children, disabled, onClick }) {
+  const theme = useContext(ThemeContext);
+  const className = 'button-' + theme;
+  return (
+    <button
+      className={className}
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+}
+
+
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+</script>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+h4 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+h5 {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+h6 {
+  margin-top: 0;
+  font-size: 12px;
+}
+
+code {
+  font-size: 1.2em;
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+label {
+  display: block;
+}
+
+.panel-light,
+.panel-dark {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+.panel-light {
+  color: #222;
+  background: #fff;
+}
+
+.panel-dark {
+  color: #fff;
+  background: rgb(23, 32, 42);
+}
+
+.button-light,
+.button-dark {
+  border: 1px solid #777;
+  padding: 5px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.button-dark {
+  background: #222;
+  color: #fff;
+}
+
+.button-light {
+  background: #fff;
+  color: #222;
+}
+
+</style>
+</html>
