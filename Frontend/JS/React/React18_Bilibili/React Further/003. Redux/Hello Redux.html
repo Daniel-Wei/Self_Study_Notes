@@ -62,6 +62,15 @@
         }
     }
 
+    /*
+        问题
+        1. 复杂state难以维护 
+            - 对state进行分组
+            - 创建多个reducer
+        2. 每次对state进行操作时，都需要进行复制（可能多层级），然后再去修改
+        3. action.type的常量也难以维护
+    */
+
     const store = Redux.createStore(reducer, {cnt: 1});
 
     store.subscribe(() => {
