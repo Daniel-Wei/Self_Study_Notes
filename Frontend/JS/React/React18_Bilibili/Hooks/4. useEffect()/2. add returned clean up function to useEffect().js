@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { createConnection } from './chat.js';
 
-// in dev environment, show 'connecting...' twice
+// in dev environment, show 'connecting...' twice -> to verify whether the cleanup function acts
 export default function ChatRoom() {
     useEffect(() => {
         const connection = createConnection();
