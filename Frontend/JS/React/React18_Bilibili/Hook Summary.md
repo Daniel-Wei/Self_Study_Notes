@@ -1,6 +1,6 @@
 ### Hook Summary
 
-- 1. useState()
+- 1.useState()
   ```js
   import React, { useState } from "react";
  
