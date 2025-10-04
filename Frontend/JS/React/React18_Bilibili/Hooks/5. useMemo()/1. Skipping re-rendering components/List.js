@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-const List = function List({ items }) {
+const List = memo(function List({ items }) {
     console.log('[ARTIFICIALLY SLOW] Rendering <List /> with ' + items.length + ' items');
     let startTime = performance.now();
     while (performance.now() - startTime < 500) {
@@ -19,4 +19,4 @@ const List = function List({ items }) {
             ))}
         </ul>
     );
-};
+});
