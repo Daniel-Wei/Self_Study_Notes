@@ -1,4 +1,4 @@
-// problem 1:  
+// problem 1: Every reactive value must be declared as a dependency of your Effect
 function ChatRoom({ roomId }) {
     const [message, setMessage] = useState('');
   
@@ -12,26 +12,6 @@ function ChatRoom({ roomId }) {
       connection.connect();
       // ...
     }); 
-};
-
-// Solution 1:  Wrap the object you need to call from an Effect in useMemo
-function ChatRoom({ roomId }) {
-    const [message, setMessage] = useState('');
-
-    // This ensures that the options object is the same between re-renders if useMemo returns the cached object.
-    const options = useMemo(() => {
-        return {
-            serverUrl: 'https://localhost:1234',
-            roomId: roomId
-        };
-    }, [roomId]); // ✅ Only changes when roomId changes
-  
-    useEffect(() => {
-          const connection = createConnection(options);
-          connection.connect();
-          return () => connection.disconnect();
-    }, [options]); // ✅ Only changes when options changes
-    // ...
 };
 
 // Solution 2: No need for useMemo. As React may throw away the cached value if there is a specific reason to do that. 
