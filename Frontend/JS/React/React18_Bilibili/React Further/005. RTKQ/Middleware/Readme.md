@@ -52,5 +52,5 @@ middleware: (getDefaultMiddleware) =>
   getDefaultMiddleware().concat(studentApi.middleware)
 ```
 
-### 这句话意思是：
+#### 这句话意思是：
 - 取出 RTK 默认中间件，然后在后面拼接上 studentApi.middleware，让 RTK Query 的逻辑也能生效。
