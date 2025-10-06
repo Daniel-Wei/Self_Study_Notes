@@ -24,3 +24,21 @@ store.dispatch({ type: 'students/fetchStart' })
 - 拦截某些 action 改变行为；
 
 - 在 RTK Query 里：处理 网络请求、缓存、自动重试、轮询 等。
+
+### 2. RTK 默认就自带一些 middleware
+
+#### 当你写：
+```js
+const store = configureStore({
+  reducer: {...},
+});
+```
+
+#### RTK 会自动加上一些默认的中间件，比如：
+
+- redux-thunk（允许 dispatch 函数式 action）
+
+- serializableCheck（防止非序列化数据进入 state）
+- immutableCheck（防止直接修改 state）
+
+#### 这些默认中间件由 getDefaultMiddleware() 提供。
