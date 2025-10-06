@@ -37,8 +37,20 @@ const store = configureStore({
 #### RTK 会自动加上一些默认的中间件，比如：
 
 - redux-thunk（允许 dispatch 函数式 action）
-
 - serializableCheck（防止非序列化数据进入 state）
 - immutableCheck（防止直接修改 state）
 
 #### 这些默认中间件由 getDefaultMiddleware() 提供。
+
+### 3. RTK Query 需要它自己的 middleware
+
+#### RTK Query 的强大功能（比如自动缓存、轮询、重新请求、取消请求等）都是通过它自己的 middleware 实现的。
+
+#### 所以我们必须在 store 里 把它的 middleware 接进来：
+```js
+middleware: (getDefaultMiddleware) =>
+  getDefaultMiddleware().concat(studentApi.middleware)
+```
+
+### 这句话意思是：
+- 取出 RTK 默认中间件，然后在后面拼接上 studentApi.middleware，让 RTK Query 的逻辑也能生效。
